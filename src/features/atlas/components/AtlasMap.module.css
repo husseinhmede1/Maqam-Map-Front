@@ -1,0 +1,70 @@
+.mapbox {
+  position: relative;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--color-canvas);
+}
+
+.canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  cursor: grab;
+  touch-action: none;
+}
+
+.overlayDragging {
+  cursor: grabbing;
+}
+
+.vignette {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(120% 90% at 50% 40%, transparent 58%, rgba(6, 4, 12, 0.5) 100%);
+}
+
+.hint {
+  position: absolute;
+  bottom: 10px;
+  inset-inline-start: 14px;
+  font-size: 11px;
+  color: var(--color-ink-dim);
+  background: rgba(10, 8, 18, 0.7);
+  padding: 5px 10px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--color-line);
+  pointer-events: none;
+}
+
+.zoomBadge {
+  position: absolute;
+  top: 10px;
+  inset-inline-end: 12px;
+  font-size: 11px;
+  color: var(--color-ink-dim);
+  background: rgba(10, 8, 18, 0.7);
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--color-line);
+  pointer-events: none;
+}
+
+.building {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: rgba(10, 8, 18, 0.55);
+  color: var(--color-ink-dim);
+  font-size: 13px;
+  pointer-events: none;
+}

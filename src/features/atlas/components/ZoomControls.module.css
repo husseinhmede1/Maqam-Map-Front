@@ -1,0 +1,29 @@
+.controls {
+  position: absolute;
+  top: 10px;
+  inset-inline-start: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  z-index: 3;
+}
+
+.button {
+  width: 34px;
+  height: 34px;
+  border-radius: 9px;
+  border: 1px solid var(--color-line);
+  background: rgba(16, 12, 28, 0.85);
+  font-size: 17px;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.2s;
+}
+
+.button:hover,
+.button:focus-visible {
+  border-color: var(--color-line-strong);
+}

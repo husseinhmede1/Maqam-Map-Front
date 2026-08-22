@@ -1,0 +1,36 @@
+/**
+ * Design tokens. The night palette is deliberate: it is what lets the region
+ * colours read as music rather than as a political map (CLAUDE.md §5.4).
+ */
+:root {
+  --color-bg: #0d0a16;
+  --color-surface: #161022;
+  --color-canvas: #0a0812;
+  --color-ink: #ede7da;
+  --color-ink-dim: #9c93a8;
+  --color-line: rgba(237, 231, 218, 0.14);
+  --color-line-strong: rgba(237, 231, 218, 0.45);
+  --color-youtube: #ff7b7b;
+
+  --font-display: 'Amiri', 'Times New Roman', serif;
+  --font-body: 'IBM Plex Sans Arabic', system-ui, -apple-system, sans-serif;
+
+  --radius-sm: 8px;
+  --radius-md: 11px;
+  --radius-lg: 14px;
+  --radius-pill: 24px;
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 22px;
+  --space-6: 32px;
+
+  --shell-max-width: 1240px;
+
+  /* The journey strip: the gradient the whole project is about. */
+  --gradient-journey:
+    #f2ce6b, #e2a93e 10%, #d4923a 18%, #c96a4a 27%, #b23a55 37%, #a54270 45%, #8e4d8f 53%,
+    #c13d7e 62%, #8a5e9b 72%, #2f9e77 84%, #3f8aa8;
+}
