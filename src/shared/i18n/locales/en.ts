@@ -3,7 +3,7 @@ import type { Dictionary } from '../dictionary';
 export const en: Dictionary = {
   meta: { htmlLang: 'en', dir: 'ltr', numberLocale: 'en-US' },
   brand: 'MaqaMap',
-  eyebrow: 'INTERACTIVE ATLAS · 99 MUSICAL REGIONS · 5 HISTORIC ROUTES · ZOOMABLE',
+  eyebrow: 'INTERACTIVE ATLAS · 108 MUSICAL REGIONS · 5 HISTORIC ROUTES · ZOOMABLE',
   tagline: 'Where the Maqams Blend',
   intro:
     'Music ignores political borders: the colors on this map blend gradually where musical styles blend — from the nuba of Fez to the maqam of Baghdad, from the dastgah of Shiraz to the muqam of Kashgar, from the ragas of Delhi to the pentatonic world of Beijing, and across the oceans to blues, son and samba. Scroll or pinch to zoom, drag to pan, and click any point to explore its music.',
@@ -69,5 +69,5 @@ export const en: Dictionary = {
   },
 
   footer:
-    'Note: the map is simplified and approximate; each of the 99 regions contains dozens of local styles no single map can hold. Colors are a visual device for neighboring musical families and their gradients, not a strict scholarly classification.',
+    'Note: the map is simplified and approximate; each of the 108 regions contains dozens of local styles no single map can hold. Colors are a visual device for neighboring musical families and their gradients, not a strict scholarly classification.',
 };

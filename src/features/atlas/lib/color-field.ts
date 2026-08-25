@@ -34,10 +34,10 @@ export function hexToRgb(hex: string): [number, number, number] {
 
 /**
  * The visual heart of the project: every pixel is an inverse-distance weighted
- * average of all 99 region colours, so styles blend continuously instead of
+ * average of all 108 region colours, so styles blend continuously instead of
  * sitting in hard-edged blocks (CLAUDE.md §1).
  *
- * Cost is `width × height × regions` — about 5.9M weighted samples at the
+ * Cost is `width × height × regions` — about 6.5M weighted samples at the
  * default size, which is why it runs in a worker and its result is cached.
  */
 export function computeColorField({
