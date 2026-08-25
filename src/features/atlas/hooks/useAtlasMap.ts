@@ -21,9 +21,8 @@ export interface AtlasMapInput {
   visibleRouteIds: string[];
   selectedRegionId: string | null;
   locale: Locale;
+  /** Fired when the visitor clicks or taps a point on the map. */
   onSelectRegion: (regionId: string) => void;
-  /** Fired on a tap/click selection (not on hover), so the page can scroll to the songs. */
-  onCommitSelection?: (regionId: string) => void;
 }
 
 export interface AtlasMapApi {
@@ -62,7 +61,6 @@ export function useAtlasMap({
   selectedRegionId,
   locale,
   onSelectRegion,
-  onCommitSelection,
 }: AtlasMapInput): AtlasMapApi {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const baseCanvasRef = useRef<HTMLCanvasElement | null>(null);
@@ -96,7 +94,6 @@ export function useAtlasMap({
     reducedMotion,
     visibleRouteIds: new Set(visibleRouteIds),
     onSelectRegion,
-    onCommitSelection,
   });
   frameRef.current = {
     regions,
@@ -109,7 +106,6 @@ export function useAtlasMap({
     reducedMotion,
     visibleRouteIds: new Set(visibleRouteIds),
     onSelectRegion,
-    onCommitSelection,
   };
 
   const renderBase = useCallback(() => {
@@ -306,19 +302,8 @@ export function useAtlasMap({
         return;
       }
 
-      // Hovering with a mouse previews regions; touch requires an explicit tap.
-      if (event.pointerType === 'mouse' && event.buttons === 0) {
-        const region = nearestRegion(
-          frameRef.current.regions,
-          frameRef.current.projector,
-          viewRef.current,
-          point.x,
-          point.y,
-        );
-        if (region && region.id !== frameRef.current.selectedRegionId) {
-          frameRef.current.onSelectRegion(region.id);
-        }
-      }
+      // Moving the pointer never changes the selection: mouse and touch alike
+      // require a deliberate click, so the panel stays put while you aim.
     };
 
     const onPointerUp = (event: PointerEvent) => {
@@ -336,10 +321,7 @@ export function useAtlasMap({
             point.x,
             point.y,
           );
-          if (region) {
-            frameRef.current.onSelectRegion(region.id);
-            frameRef.current.onCommitSelection?.(region.id);
-          }
+          if (region) frameRef.current.onSelectRegion(region.id);
         }
         pan = null;
         pinch = null;

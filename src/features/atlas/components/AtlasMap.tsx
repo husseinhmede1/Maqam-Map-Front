@@ -11,9 +11,9 @@ interface AtlasMapProps {
   land: LandGeometry;
   visibleRouteIds: string[];
   selectedRegionId: string | null;
+  /** Fired when the visitor clicks or taps a point on the map. */
   onSelectRegion: (regionId: string) => void;
   onToggleRoute: (routeId: string) => void;
-  onCommitSelection?: (regionId: string) => void;
 }
 
 const NARROW_SCREEN = 700;
@@ -31,7 +31,6 @@ export function AtlasMap({
   selectedRegionId,
   onSelectRegion,
   onToggleRoute,
-  onCommitSelection,
 }: AtlasMapProps) {
   const { t, locale, number } = useTranslation();
   const map = useAtlasMap({
@@ -42,7 +41,6 @@ export function AtlasMap({
     selectedRegionId,
     locale,
     onSelectRegion,
-    onCommitSelection,
   });
 
   const zoomLabel = map.zoom >= 2 ? Math.round(map.zoom) : Math.round(map.zoom * 10) / 10;

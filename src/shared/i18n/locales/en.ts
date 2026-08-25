@@ -10,7 +10,7 @@ export const en: Dictionary = {
   switchLanguage: 'عربي',
 
   map: {
-    hint: 'Drag to pan · scroll or pinch with two fingers to zoom',
+    hint: 'Click a point to select it · drag to pan · scroll or pinch to zoom',
     zoomIn: 'Zoom in',
     zoomOut: 'Zoom out',
     resetView: 'Reset view',

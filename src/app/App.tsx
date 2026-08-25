@@ -43,10 +43,16 @@ export function App() {
     [selectedRegion, regionsById],
   );
 
-  // A tap selects *and* brings the song list into view; hovering must not scroll.
-  const onCommitSelection = useCallback(() => {
-    songsRef.current?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-  }, []);
+  // Clicking the map selects the region *and* brings its songs into view. The
+  // neighbour chips in the panel deliberately do not scroll: the visitor is
+  // already reading that panel.
+  const selectFromMap = useCallback(
+    (regionId: string) => {
+      selectRegion(regionId);
+      songsRef.current?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    },
+    [selectRegion],
+  );
 
   if (isPending) {
     return (
@@ -84,9 +90,8 @@ export function App() {
             land={data.land}
             visibleRouteIds={visibleRouteIds}
             selectedRegionId={selectedRegion.id}
-            onSelectRegion={selectRegion}
+            onSelectRegion={selectFromMap}
             onToggleRoute={toggleRoute}
-            onCommitSelection={onCommitSelection}
           />
           <RegionPanel
             region={selectedRegion}

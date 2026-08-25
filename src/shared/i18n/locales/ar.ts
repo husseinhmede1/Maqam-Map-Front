@@ -10,7 +10,7 @@ export const ar: Dictionary = {
   switchLanguage: 'English',
 
   map: {
-    hint: 'اسحب للتحريك · عجلة الفأرة أو القرص بإصبعين للتكبير',
+    hint: 'انقر أي نقطة لاختيارها · اسحب للتحريك · عجلة الفأرة أو القرص بإصبعين للتكبير',
     zoomIn: 'تكبير',
     zoomOut: 'تصغير',
     resetView: 'عرض العالم كاملاً',
